@@ -42,5 +42,5 @@ if __name__ == "__main__":
     try:
         asyncio.get_event_loop().run_until_complete(test_cswsh(args.url, args.skip_ssl, args.origin))
     except Exception as e:
-        # Only display the last line of the errors
+        # Only display the last line of the error
         print(str(e).splitlines()[-1])
