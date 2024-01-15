@@ -57,6 +57,12 @@ async def test_cswsh(target_url, skip_ssl_verify, custom_origin):
                 print(f"[+] {short_url} is vulnerable to CSWSH!")
             else:
                 print(f"[-] {short_url} is not vulnerable to CSWSH.")
+    except websockets.exceptions.InvalidStatusCode as e:
+        if e.status_code == 403:
+            print(f"[-] {short_url} - 403 Forbidden - correctly rejects connections with tampered Origin. Not vulnerable to CSWSH.")
+        else:
+            print(f"Error: Received HTTP status {e.status_code}")
+
     except Exception as e:
         print(str(e).splitlines()[-1])
 
