@@ -50,9 +50,9 @@ def middleware_server(host_port, content_type="text/plain"):
     httpd.serve_forever()
 
 print("[+] Starting Middleware Server")
-print("[+] Send payloads in http://localhost:8081/?id=*")
+print("[+] Send payloads in http://localhost:8484/?id=*")
 
 try:
-    middleware_server(('0.0.0.0', 8081))
+    middleware_server(('0.0.0.0', 8484))
 except KeyboardInterrupt:
     pass
